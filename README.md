@@ -1,6 +1,8 @@
 ProjEulerLib
 ============
 
+[![Build status](https://ci.appveyor.com/api/projects/status/5qiko4h3ykf4d61p/branch/master?svg=true)](https://ci.appveyor.com/project/FrancoisBard/projeulerlib/branch/master)
+
 A small library of helpers and extensions methods for solving problems on projecteuler.net
 
 [Project Euler](http://projecteuler.net/) is 'a series of challenging mathematical/computer programming problems that will require more than just mathematical insights to solve'
