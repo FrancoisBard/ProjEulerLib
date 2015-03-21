@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Numerics;
+using System.Collections;
 
 namespace ProjEulerLib
 {
@@ -12,19 +13,17 @@ namespace ProjEulerLib
         private static List<BigInteger> cache = new List<BigInteger>() { 2 };
         private List<BigInteger> list = new List<BigInteger>() { 2 };
 
-        //IEnumerable<>
         public IEnumerator<BigInteger> GetEnumerator()
         {
             return list.GetEnumerator();
         }
 
-        //Extension methods
-        public static bool IsPrime(this int n)
+        IEnumerator IEnumerable.GetEnumerator()
         {
-            return IsPrime((BigInteger)n);
+            return this.GetEnumerator();
         }
 
-        public static bool IsPrime(this BigInteger n)
+        public static bool IsPrime(BigInteger n)
         {
             while (cache.Last() < n)
             {
@@ -69,6 +68,19 @@ namespace ProjEulerLib
             {
                 list.Add(Next());
             }
+        }
+    }
+
+    public static class PrimesExtension
+    {
+        public static bool IsPrime(this int n)
+        {
+            return IsPrime((BigInteger)n);
+        }
+
+        public static bool IsPrime(this BigInteger n)
+        {
+            return Primes.IsPrime(n);
         }
     }
 }
